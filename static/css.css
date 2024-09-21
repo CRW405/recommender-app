@@ -1,0 +1,132 @@
+    * {
+        color: white;
+    }
+
+    body {
+        background-color: #181818;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 15px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        background-color: #121212;
+        color: white;
+        border-radius: 5px;
+    }
+
+    li:hover {
+        background-color: #232323;
+    }
+
+    b {
+        padding: 5px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    img {
+        margin-right: 10px;
+        width: 250px;
+        border-radius: 5px;
+    }
+
+    .nosongs {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .nosongs p {
+        color: white;
+    }
+
+    .nosongs img {
+        width: 100px;
+    }
+
+    /*-------------------- Search bar: --------------------*/
+    /* stolen from a guide to copy spotify front end, just for convenience since front end was not the focus of the project*/
+
+    .header--actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .header--search {
+        margin-left: -25px;
+        min-width: 360px;
+        /* gotta center the div without changing margin: */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .input-group {
+        position: relative;
+    }
+
+    .input-group .left-icon {
+        position: absolute;
+        z-index: 2;
+        left: 15px;
+        top: 0;
+        color: white;
+        font-size: 1.375rem;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .input {
+        margin: 0;
+        border: 0;
+        height: 40px;
+        border-radius: 25px;
+        width: 100%;
+        outline: 0;
+        background-color: #282828;
+    }
+
+    .input-group.has-left-icon .input {
+        padding-left: 50px;
+    }
+
+    .input-group.has-right-icon .input {
+        padding-right: 50px;
+    }
+
+    .input-group .right-icon {
+        position: absolute;
+        z-index: 2;
+        top: 0px;
+        right: -80px;
+        color: white;
+        font-size: 0.9375rem;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 0%;
+        padding: 0%;
+    }
+
+    /*
+    toggling the z-index =>
+    hides/shows the X icon in the search input
+    */
+    .input-group .right-icon.clear--search {
+        z-index: 0;
+    }

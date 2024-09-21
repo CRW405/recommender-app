@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css">
+</head>
+
+<body>
+    <form action="/recommend" method="post">
+        <!-- <input type="text" id="seed" name="seed" required placeholder="Enter a song link"> -->
+        <div class="header--search input-group has-left-icon has-right-icon can-delete">
+            <span class="left-icon lni lni-search"></span>
+            <input type="text" id="seed" name="seed" class="input" placeholder="Enter a song url">
+            <span class="right-icon clear--search lni lni-close"></span>
+        </div>
+    </form>
+
+    {% if songs and songsexist %}<!--if no errors and songs exist run block-->
+    <ul>
+        {% for song in songs %} <!--loop through songs and display all gathered data-->
+        <a href="{{song.uri}}"> <!--link to the song on spotify-->
+            <li>
+                <img src="{{song.cover}}" alt="{{song.name}} cover">
+                {{ song.name }}
+                <b>By</b>
+                {{song.artists|join(", ") }} <!--this easily puts each artists in a list format-->
+                {% if song.genres %}<b>Genres:</b> {{song.genres|join(", ")}}{% endif %}
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
+    {% else %} <!-- if no songs are gathered, display a placeholder graphic-->
+    <div class="nosongs">
+        <img src="{{url_for('static', filename='spot.png')}}" alt="spotify logo">
+        <p>Enter a song url to get recommendations</p>
+    </div>
+    {% endif %}
+</body>
+
+<script src="{{ url_for('static', filename='js.js') }}"></script>
+
+</html>
